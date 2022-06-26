@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: small-island-labs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: small-island-labs
+  template:
+    metadata:
+      labels:
+        app: small-island-labs
+    spec:
+      containers:
+        - name: small-island-labs
+          image: machelslack/small-island-labs:0.0.0
+          ports:
+            - containerPort: 3000
+          imagePullPolicy: Always
